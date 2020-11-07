@@ -10,6 +10,8 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_user.view.*
 import ru.cface.api_sample.R
 import ru.cface.api_sample.data.model.User
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainAdapter(
     private val users: ArrayList<User>
@@ -58,7 +60,7 @@ class MainAdapter(
                 } else {
                     val resultList = ArrayList<User>()
                     for (row in users) {
-                        if (row.name.contains(charSearch)) {
+                        if (row.name.toLowerCase(Locale.ROOT).contains(charSearch)) {
                             resultList.add(row)
                         }
                     }
